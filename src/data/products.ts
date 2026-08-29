@@ -8,53 +8,101 @@ export interface Product {
 }
 
 export const PRODUCTS: Product[] = [
-  // Acrylic Frames
+  // Frame Sizes
   {
-    id: 'frame-couple',
-    name: 'Couple Acrylic Frame',
-    price: 899,
-    description: 'Capture your romantic memories forever in our premium edge-to-edge glossy acrylic frame with gold highlights.',
-    image: 'https://picsum.photos/seed/frame-couple/600/400',
+    id: 'frame-4x6',
+    name: '4x6 Frame',
+    price: 149,
+    description: 'Premium quality 4x6 inch frame, perfect for small photos. HD Photo Printing, Custom Designs Available.',
+    image: 'https://picsum.photos/seed/frame-4x6/600/400',
     category: 'frames'
   },
   {
-    id: 'frame-family',
-    name: 'Family Acrylic Frame',
-    price: 1099,
-    description: 'Perfect family portrait frame, crafted in heavy, shatterproof golden-accented acrylic with absolute clarity.',
-    image: 'https://picsum.photos/seed/frame-family/600/400',
+    id: 'frame-5x7',
+    name: '5x7 Frame',
+    price: 199,
+    description: 'Premium quality 5x7 inch frame, ideal for standard prints. HD Photo Printing, Custom Designs Available.',
+    image: 'https://picsum.photos/seed/frame-5x7/600/400',
     category: 'frames'
   },
   {
-    id: 'frame-birthday',
-    name: 'Birthday Acrylic Frame',
+    id: 'frame-6x8',
+    name: '6x8 Frame',
+    price: 249,
+    description: 'Premium quality 6x8 inch frame, great for portraits. HD Photo Printing, Custom Designs Available.',
+    image: 'https://picsum.photos/seed/frame-6x8/600/400',
+    category: 'frames'
+  },
+  {
+    id: 'frame-6x9',
+    name: '6x9 Frame',
+    price: 299,
+    description: 'Premium quality 6x9 inch frame, beautiful display piece. HD Photo Printing, Custom Designs Available.',
+    image: 'https://picsum.photos/seed/frame-6x9/600/400',
+    category: 'frames'
+  },
+  {
+    id: 'frame-8x10',
+    name: '8x10 Frame',
+    price: 399,
+    description: 'Premium quality 8x10 inch frame, standard large portrait size. HD Photo Printing, Custom Designs Available.',
+    image: 'https://picsum.photos/seed/frame-8x10/600/400',
+    category: 'frames'
+  },
+  {
+    id: 'frame-8x12',
+    name: '8x12 Frame',
+    price: 499,
+    description: 'Premium quality 8x12 inch frame. HD Photo Printing, Custom Designs Available.',
+    image: 'https://picsum.photos/seed/frame-8x12/600/400',
+    category: 'frames'
+  },
+  {
+    id: 'frame-10x12',
+    name: '10x12 Frame',
+    price: 599,
+    description: 'Premium quality 10x12 inch frame. HD Photo Printing, Custom Designs Available.',
+    image: 'https://picsum.photos/seed/frame-10x12/600/400',
+    category: 'frames'
+  },
+  {
+    id: 'frame-10x15',
+    name: '10x15 Frame',
     price: 799,
-    description: 'Celebrate a milestone birthday with customized layouts, elegant gold text print, and glass-like gloss.',
-    image: 'https://picsum.photos/seed/frame-birthday/600/400',
+    description: 'Premium quality 10x15 inch frame. HD Photo Printing, Custom Designs Available.',
+    image: 'https://picsum.photos/seed/frame-10x15/600/400',
     category: 'frames'
   },
   {
-    id: 'frame-wedding',
-    name: 'Wedding Acrylic Frame',
-    price: 1299,
-    description: 'Royal wedding design featuring gold border motifs, custom initials print, and scratch-resistant gloss finish.',
-    image: 'https://picsum.photos/seed/frame-wedding/600/400',
-    category: 'frames'
-  },
-  {
-    id: 'frame-led',
-    name: 'LED Acrylic Frame',
-    price: 1499,
-    description: 'Brings your memory to life with an elegant gold wood base and custom soft-glow yellow LED backlighting.',
-    image: 'https://picsum.photos/seed/frame-led/600/400',
-    category: 'frames'
-  },
-  {
-    id: 'frame-personalized',
-    name: 'Personalized Custom Frame',
+    id: 'frame-12x18',
+    name: '12x18 Frame',
     price: 999,
-    description: 'Choose your size and layout, featuring custom gold-foil script engraving for names and messages.',
-    image: 'https://picsum.photos/seed/frame-personalized/600/400',
+    description: 'Premium quality 12x18 inch frame. HD Photo Printing, Custom Designs Available.',
+    image: 'https://picsum.photos/seed/frame-12x18/600/400',
+    category: 'frames'
+  },
+  {
+    id: 'frame-15x21',
+    name: '15x21 Frame',
+    price: 1499,
+    description: 'Premium quality 15x21 inch frame. HD Photo Printing, Custom Designs Available.',
+    image: 'https://picsum.photos/seed/frame-15x21/600/400',
+    category: 'frames'
+  },
+  {
+    id: 'frame-18x24',
+    name: '18x24 Frame',
+    price: 1999,
+    description: 'Premium quality 18x24 inch poster size frame. HD Photo Printing, Custom Designs Available.',
+    image: 'https://picsum.photos/seed/frame-18x24/600/400',
+    category: 'frames'
+  },
+  {
+    id: 'frame-24x36',
+    name: '24x36 Frame',
+    price: 2999,
+    description: 'Premium quality 24x36 inch large poster size frame. HD Photo Printing, Custom Designs Available.',
+    image: 'https://picsum.photos/seed/frame-24x36/600/400',
     category: 'frames'
   }
 ];
