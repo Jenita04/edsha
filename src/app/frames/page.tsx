@@ -106,14 +106,24 @@ export default function FramesPage() {
                 key={product.id} 
                 className="luxury-card rounded-xl overflow-hidden flex flex-col h-full bg-neutral-900/40 border border-amber-500/15"
               >
-                {/* Product Image */}
-                <div className="h-64 bg-neutral-950 relative overflow-hidden border-b border-amber-500/10 group">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/60 to-transparent pointer-events-none" />
+                {/* Product Image with Wooden Frame Effect */}
+                <div className="h-72 bg-neutral-900 flex items-center justify-center p-6 relative overflow-hidden border-b border-amber-500/10 group">
+                  <div className="w-full h-full relative z-10" style={{
+                    border: '16px solid #4a3018',
+                    borderLeftColor: '#5c4028',
+                    borderTopColor: '#6a4b32',
+                    borderRightColor: '#3a2008',
+                    borderBottomColor: '#2d1804',
+                    boxShadow: '0 15px 30px rgba(0,0,0,0.6), inset 0 0 15px rgba(0,0,0,0.9)',
+                    backgroundColor: '#fff'
+                  }}>
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    />
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 to-transparent pointer-events-none z-20" />
 
                   <div className="absolute top-4 right-4 flex flex-col space-y-2">
                     <button
@@ -183,14 +193,24 @@ export default function FramesPage() {
                     <div className="border-2 border-dashed border-amber-500/30 rounded-xl bg-neutral-900/30 p-6 flex flex-col items-center justify-center text-center relative hover:border-amber-500 transition-colors h-64 overflow-hidden">
                       {photoUrl ? (
                         <>
-                          <img 
-                            src={photoUrl} 
-                            alt="Uploaded Preview" 
-                            className="w-full h-full object-contain"
-                          />
+                          <div className="w-3/4 h-3/4 relative z-10" style={{
+                            border: '12px solid #4a3018',
+                            borderLeftColor: '#5c4028',
+                            borderTopColor: '#6a4b32',
+                            borderRightColor: '#3a2008',
+                            borderBottomColor: '#2d1804',
+                            boxShadow: '0 10px 25px rgba(0,0,0,0.5), inset 0 0 15px rgba(0,0,0,0.8)',
+                            backgroundColor: '#fff'
+                          }}>
+                            <img 
+                              src={photoUrl} 
+                              alt="Uploaded Preview" 
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
                           <button
                             onClick={() => { setPhoto(null); setPhotoUrl(''); }}
-                            className="absolute bottom-2 right-2 bg-neutral-950/80 text-amber-500 hover:text-amber-400 font-bold text-xs py-1 px-3 rounded-md border border-amber-500/30"
+                            className="absolute bottom-2 right-2 bg-neutral-950/80 text-amber-500 hover:text-amber-400 font-bold text-xs py-1 px-3 rounded-md border border-amber-500/30 z-20"
                           >
                             Change Photo
                           </button>

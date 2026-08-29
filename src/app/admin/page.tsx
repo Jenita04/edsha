@@ -132,14 +132,20 @@ export default function AdminPage() {
     }
   };
 
-  // Add new Product handler
   const handleAddProduct = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newProduct.name || !newProduct.price) return;
+    // Validate inputs
+    const sanitizedName = newProduct.name.trim();
+    const sanitizedPrice = parseFloat(newProduct.price);
+    
+    if (!sanitizedName || isNaN(sanitizedPrice) || sanitizedPrice <= 0) {
+      alert("Invalid input: Please enter a valid product name and price.");
+      return;
+    }
     
     addProduct({
-      name: newProduct.name,
-      price: parseFloat(newProduct.price),
+      name: sanitizedName,
+      price: sanitizedPrice,
       category: newProduct.category,
       description: newProduct.description,
       image: newProduct.image,
@@ -217,8 +223,8 @@ export default function AdminPage() {
             className="w-full mb-4 p-2 bg-neutral-800 border border-amber-500/30 rounded text-white focus:outline-none"
           />
           <button
-            onClick={() => {
-              const success = login(password);
+            onClick={async () => {
+              const success = await login(password);
               if (success) {
                 setPassword('');
                 setLoginError('');

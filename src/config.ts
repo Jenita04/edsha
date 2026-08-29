@@ -5,6 +5,5 @@ export const CONFIG = {
   CALL_NUMBER: '8754477494',
   EMAIL: 'edshagiftitems@gmail.com',
   INSTAGRAM: 'edshagiftitems',
-  ADDRESS: 'EDSHA Gifting Studio, Phase 1, Jubilee Hills, Hyderabad - 500033',
   MOCK_PAYMENT_UPI: 'edsha@upi'
 };

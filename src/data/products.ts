@@ -14,7 +14,7 @@ export const PRODUCTS: Product[] = [
     name: '4x6 Frame',
     price: 149,
     description: 'Premium quality 4x6 inch frame, perfect for small photos. HD Photo Printing, Custom Designs Available.',
-    image: 'https://picsum.photos/seed/frame-4x6/600/400',
+    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&q=80',
     category: 'frames'
   },
   {
@@ -22,7 +22,7 @@ export const PRODUCTS: Product[] = [
     name: '5x7 Frame',
     price: 199,
     description: 'Premium quality 5x7 inch frame, ideal for standard prints. HD Photo Printing, Custom Designs Available.',
-    image: 'https://picsum.photos/seed/frame-5x7/600/400',
+    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=80',
     category: 'frames'
   },
   {
@@ -30,7 +30,7 @@ export const PRODUCTS: Product[] = [
     name: '6x8 Frame',
     price: 249,
     description: 'Premium quality 6x8 inch frame, great for portraits. HD Photo Printing, Custom Designs Available.',
-    image: 'https://picsum.photos/seed/frame-6x8/600/400',
+    image: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=800&q=80',
     category: 'frames'
   },
   {
@@ -38,7 +38,7 @@ export const PRODUCTS: Product[] = [
     name: '6x9 Frame',
     price: 299,
     description: 'Premium quality 6x9 inch frame, beautiful display piece. HD Photo Printing, Custom Designs Available.',
-    image: 'https://picsum.photos/seed/frame-6x9/600/400',
+    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&q=80',
     category: 'frames'
   },
   {
@@ -46,7 +46,7 @@ export const PRODUCTS: Product[] = [
     name: '8x10 Frame',
     price: 399,
     description: 'Premium quality 8x10 inch frame, standard large portrait size. HD Photo Printing, Custom Designs Available.',
-    image: 'https://picsum.photos/seed/frame-8x10/600/400',
+    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=80',
     category: 'frames'
   },
   {
@@ -54,7 +54,7 @@ export const PRODUCTS: Product[] = [
     name: '8x12 Frame',
     price: 499,
     description: 'Premium quality 8x12 inch frame. HD Photo Printing, Custom Designs Available.',
-    image: 'https://picsum.photos/seed/frame-8x12/600/400',
+    image: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=800&q=80',
     category: 'frames'
   },
   {
@@ -62,7 +62,7 @@ export const PRODUCTS: Product[] = [
     name: '10x12 Frame',
     price: 599,
     description: 'Premium quality 10x12 inch frame. HD Photo Printing, Custom Designs Available.',
-    image: 'https://picsum.photos/seed/frame-10x12/600/400',
+    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&q=80',
     category: 'frames'
   },
   {
@@ -70,7 +70,7 @@ export const PRODUCTS: Product[] = [
     name: '10x15 Frame',
     price: 799,
     description: 'Premium quality 10x15 inch frame. HD Photo Printing, Custom Designs Available.',
-    image: 'https://picsum.photos/seed/frame-10x15/600/400',
+    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=80',
     category: 'frames'
   },
   {
@@ -78,7 +78,7 @@ export const PRODUCTS: Product[] = [
     name: '12x18 Frame',
     price: 999,
     description: 'Premium quality 12x18 inch frame. HD Photo Printing, Custom Designs Available.',
-    image: 'https://picsum.photos/seed/frame-12x18/600/400',
+    image: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=800&q=80',
     category: 'frames'
   },
   {
@@ -86,7 +86,7 @@ export const PRODUCTS: Product[] = [
     name: '15x21 Frame',
     price: 1499,
     description: 'Premium quality 15x21 inch frame. HD Photo Printing, Custom Designs Available.',
-    image: 'https://picsum.photos/seed/frame-15x21/600/400',
+    image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&q=80',
     category: 'frames'
   },
   {
@@ -94,7 +94,7 @@ export const PRODUCTS: Product[] = [
     name: '18x24 Frame',
     price: 1999,
     description: 'Premium quality 18x24 inch poster size frame. HD Photo Printing, Custom Designs Available.',
-    image: 'https://picsum.photos/seed/frame-18x24/600/400',
+    image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=800&q=80',
     category: 'frames'
   },
   {
@@ -102,7 +102,7 @@ export const PRODUCTS: Product[] = [
     name: '24x36 Frame',
     price: 2999,
     description: 'Premium quality 24x36 inch large poster size frame. HD Photo Printing, Custom Designs Available.',
-    image: 'https://picsum.photos/seed/frame-24x36/600/400',
+    image: 'https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=800&q=80',
     category: 'frames'
   }
 ];

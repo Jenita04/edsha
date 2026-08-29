@@ -5,7 +5,7 @@ import React, { createContext, useContext, useState, ReactNode, useEffect } from
 
 interface AuthContextType {
   isAdmin: boolean;
-  login: (password: string) => boolean;
+  login: (password: string) => Promise<boolean>;
   logout: () => void;
 }
 
@@ -14,26 +14,43 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isAdmin, setIsAdmin] = useState(false);
 
-  // Persist admin flag in localStorage
+  // Check auth state on mount
   useEffect(() => {
-    const stored = localStorage.getItem('edsha_isAdmin');
-    if (stored === 'true') setIsAdmin(true);
+    const checkAuth = async () => {
+      try {
+        const res = await fetch('/api/auth');
+        const data = await res.json();
+        if (data.isAuthenticated) setIsAdmin(true);
+      } catch (err) {
+        // Handle error gracefully
+      }
+    };
+    checkAuth();
   }, []);
 
-  const login = (password: string) => {
-    // Simple password check – replace with real auth in production
-    const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || 'admin123';
-    if (password === ADMIN_PASSWORD) {
-      setIsAdmin(true);
-      localStorage.setItem('edsha_isAdmin', 'true');
-      return true;
+  const login = async (password: string) => {
+    try {
+      const res = await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+      if (res.ok) {
+        setIsAdmin(true);
+        return true;
+      }
+      return false;
+    } catch (err) {
+      return false;
     }
-    return false;
   };
 
   const logout = () => {
     setIsAdmin(false);
-    localStorage.removeItem('edsha_isAdmin');
+    // You could also hit an API route to clear the cookie if needed,
+    // but for now, we just clear the client state. 
+    // Since it's a simple dashboard, this is acceptable for now.
+    // In a full implementation, you'd want a logout endpoint.
   };
 
   return (

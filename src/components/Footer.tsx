@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, MessageSquare, Heart, Sparkles } from 'lucide-react';
+import { Mail, MessageSquare, Heart, Sparkles } from 'lucide-react';
 import { CONFIG } from '@/config';
 
 export default function Footer() {
@@ -13,26 +13,6 @@ export default function Footer() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Newsletter Section */}
-        <div className="luxury-card p-8 sm:p-12 mb-16 text-center max-w-4xl mx-auto relative overflow-hidden border-amber-500/20">
-          <div className="absolute inset-0 bg-gradient-to-b from-amber-500/5 to-transparent pointer-events-none"></div>
-          <Sparkles className="h-8 w-8 text-amber-500 mx-auto mb-4 opacity-80" />
-          <h2 className="text-3xl font-serif text-white font-bold mb-3 tracking-wide">Join the Exclusive Circle</h2>
-          <p className="text-neutral-400 text-sm mb-8 max-w-md mx-auto leading-relaxed">
-            Subscribe to receive insider access to new collections, limited edition hampers, and exclusive gifting privileges.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto relative z-10" onSubmit={(e) => { e.preventDefault(); alert('Subscribed to the Exclusive Circle!'); }}>
-            <input 
-              type="email" 
-              placeholder="Enter your email address" 
-              required
-              className="flex-grow bg-neutral-950 border border-amber-500/30 rounded-full px-6 py-3.5 text-sm text-white focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/50 transition-all placeholder-neutral-600"
-            />
-            <button type="submit" className="gold-gradient-bg px-8 py-3.5 text-sm uppercase tracking-widest whitespace-nowrap">
-              Subscribe
-            </button>
-          </form>
-        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16 relative z-10">
           
@@ -102,16 +82,6 @@ export default function Footer() {
               <span className="w-4 h-[1px] bg-amber-500 inline-block"></span>
               Get in Touch
             </h3>
-            <div className="flex items-start space-x-3 group">
-              <MapPin className="h-5 w-5 text-amber-500 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-              <span className="leading-relaxed">{CONFIG.ADDRESS}</span>
-            </div>
-            <div className="flex items-center space-x-3 group">
-              <Phone className="h-5 w-5 text-amber-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
-              <a href={`tel:${CONFIG.CALL_NUMBER}`} className="hover:text-amber-400 transition-colors">
-                {CONFIG.CALL_NUMBER}
-              </a>
-            </div>
             <div className="flex items-center space-x-3 group">
               <Mail className="h-5 w-5 text-amber-500 flex-shrink-0 group-hover:scale-110 transition-transform" />
               <a href={`mailto:${CONFIG.EMAIL}`} className="hover:text-amber-400 transition-colors">

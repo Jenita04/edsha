@@ -575,7 +575,7 @@ export default function HomePage() {
                       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
-                    <span className="text-sm tracking-widest font-semibold uppercase text-amber-400">@edsha.gifting</span>
+                    <span className="text-sm tracking-widest font-semibold uppercase text-amber-400">@{CONFIG.INSTAGRAM}</span>
                   </div>
                   <h2 className="text-3xl sm:text-4xl font-serif text-white font-bold mb-4 tracking-wide">
                     Follow Our Journey
@@ -610,81 +610,7 @@ export default function HomePage() {
               </div>
             </section>
 
-            {/* Contact Form Section */}
-            <section id="contact" className="bg-neutral-950 py-20">
-              <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                  <h2 className="text-3xl sm:text-4xl font-serif text-white font-bold mb-4 tracking-wide">
-                    Contact <span className="text-amber-500">EDSHA</span>
-                  </h2>
-                  <p className="text-neutral-400 text-sm sm:text-base max-w-xl mx-auto">
-                    Have questions about corporate orders, wholesale rates, or bulk customizations? Drop us a message.
-                  </p>
-                </div>
 
-                <div className="luxury-card p-8 sm:p-12 rounded-xl bg-neutral-900/20">
-                  {contactSuccess ? (
-                    <div className="text-center py-8">
-                      <div className="h-14 w-14 rounded-full border border-amber-500 flex items-center justify-center text-amber-500 mx-auto mb-6">
-                        <Send className="h-6 w-6 animate-pulse" />
-                      </div>
-                      <h3 className="text-2xl font-serif text-white font-bold mb-3">Message Sent Successfully!</h3>
-                      <p className="text-neutral-400 text-sm">Thank you for writing to EDSHA. We will get back to you within 24 hours.</p>
-                    </div>
-                  ) : (
-                    <form onSubmit={handleContactSubmit} className="space-y-6">
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                          <label htmlFor="name" className="block text-xs font-semibold uppercase tracking-wider text-amber-400 mb-2">Name</label>
-                          <input
-                            type="text"
-                            id="name"
-                            required
-                            value={contactForm.name}
-                            onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                            className="w-full bg-neutral-950 border border-amber-500/20 rounded-lg py-3 px-4 text-neutral-100 placeholder-neutral-700 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/30 transition-all"
-                            placeholder="John Doe"
-                          />
-                        </div>
-                        <div>
-                          <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-amber-400 mb-2">Email Address</label>
-                          <input
-                            type="email"
-                            id="email"
-                            required
-                            value={contactForm.email}
-                            onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                            className="w-full bg-neutral-950 border border-amber-500/20 rounded-lg py-3 px-4 text-neutral-100 placeholder-neutral-700 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/30 transition-all"
-                            placeholder="john@example.com"
-                          />
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-amber-400 mb-2">Your Message</label>
-                        <textarea
-                          id="message"
-                          required
-                          rows={5}
-                          value={contactForm.message}
-                          onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
-                          className="w-full bg-neutral-950 border border-amber-500/20 rounded-lg py-3 px-4 text-neutral-100 placeholder-neutral-700 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/30 transition-all resize-none"
-                          placeholder="Tell us what you are looking for..."
-                        />
-                      </div>
-
-                      <button
-                        type="submit"
-                        className="w-full py-4 rounded-lg bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-neutral-950 font-bold tracking-wider uppercase shadow-[0_4px_15px_rgba(212,175,55,0.2)] transition-all duration-300 flex items-center justify-center gap-2 text-sm"
-                      >
-                        <Send className="h-4 w-4" />
-                        <span>Send Message</span>
-                      </button>
-                    </form>
-                  )}
-                </div>
-              </div>
-            </section>
           </>
         )}
       </main>
