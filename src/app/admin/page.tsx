@@ -52,8 +52,8 @@ export default function AdminPage() {
           date: new Date(Date.now() - 3600000 * 24 * 2).toISOString(), // 2 days ago
           customer: {
             name: 'Rohit K.',
-            phone: '9876543211',
-            whatsapp: '9876543211',
+            phone: '7305031323',
+            whatsapp: '7305031323',
             email: 'rohit@example.com',
             address: 'Flat 402, Lotus Residency, Gachibowli, Hyderabad - 500032'
           },
@@ -82,8 +82,8 @@ export default function AdminPage() {
           date: new Date(Date.now() - 3600000 * 5).toISOString(), // 5 hours ago
           customer: {
             name: 'Priyanka Sen',
-            phone: '9876543212',
-            whatsapp: '9876543212',
+            phone: '7305031323',
+            whatsapp: '7305031323',
             email: 'priyanka.s@example.com',
             address: 'Villa 12, Palm Meadows, Whitefield, Bangalore - 560066'
           },

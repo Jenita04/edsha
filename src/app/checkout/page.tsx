@@ -290,7 +290,7 @@ Please verify our order details and process customization. Thank you!`;
                             value={form.phone}
                             onChange={handleInputChange}
                             className="w-full bg-neutral-950 border border-amber-500/20 focus:border-amber-500 rounded-lg py-2.5 px-3 text-neutral-100 text-xs sm:text-sm focus:outline-none placeholder-neutral-700"
-                            placeholder="e.g. 9876543210"
+                            placeholder="e.g. 7305031323"
                           />
                         </div>
                         <div>
