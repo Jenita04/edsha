@@ -2,13 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { QRCodeSVG } from 'qrcode.react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FloatingActions from '@/components/FloatingActions';
 import { useStore } from '@/context/StoreContext';
 import { CONFIG } from '@/config';
-import { Check, ShoppingBag, Send, AlertCircle, Sparkles, CreditCard, ChevronRight, Smartphone, Copy, CheckCircle2 } from 'lucide-react';
+import { Check, ShoppingBag, Send, AlertCircle } from 'lucide-react';
 
 export default function CheckoutPage() {
   const { cart, clearCart } = useStore();
@@ -23,7 +22,7 @@ export default function CheckoutPage() {
     state: '',
     pincode: '',
     notes: '',
-    paymentMethod: 'COD' // 'COD' or 'UPI'
+    paymentMethod: 'COD'
   });
 
   const [errorMsg, setErrorMsg] = useState('');
@@ -97,6 +96,7 @@ export default function CheckoutPage() {
 
     // Generate Formatted WhatsApp Message
     let itemsText = '';
+    let hasFrameItem = false;
     cart.forEach((item, index) => {
       itemsText += `${index + 1}. *${item.name}* x ${item.quantity} (₹${item.price})\n`;
       if (item.customDetails) {
@@ -109,8 +109,8 @@ export default function CheckoutPage() {
         if (item.customDetails.customMessage) {
           itemsText += `   - Custom Message: "${item.customDetails.customMessage}"\n`;
         }
-        if (item.customDetails.photoName) {
-          itemsText += `   - Custom Photo File: ${item.customDetails.photoName}\n`;
+        if (item.customDetails.category === 'frames') {
+          hasFrameItem = true;
         }
         if (item.customDetails.hamperItems && item.customDetails.hamperItems.length > 0) {
           itemsText += `   - Box Items: ${item.customDetails.hamperItems.join(', ')}\n`;
@@ -136,11 +136,13 @@ ${itemsText}----------------------------------------
 *Delivery Charge:* ${deliveryCharge === 0 ? 'FREE' : `₹${deliveryCharge}`}
 *Total Amount:* ₹${total}
 
-*Payment Method:* ${form.paymentMethod}
-*UPI ID for transfers:* ${CONFIG.MOCK_PAYMENT_UPI}
+*Payment Method:* Cash on Delivery
 *Order Notes:* ${form.notes || 'None'}
+${hasFrameItem ? `
+📸 *ACTION REQUIRED — PHOTO FRAME ORDER:*
+Please reply to this message with the photo you want printed on your acrylic frame. We cannot proceed with your order without the photo.` : ''}
 
-Please verify our order details and process customization. Thank you!`;
+Please verify order details and process customization. Thank you!`;
 
     // Encode text for URL
     const encodedText = encodeURIComponent(whatsappMessage);
@@ -210,12 +212,6 @@ Please verify our order details and process customization. Thank you!`;
                   className="px-6 py-3 border border-neutral-800 hover:border-amber-500 text-neutral-400 hover:text-amber-500 rounded-lg transition-colors text-sm font-semibold"
                 >
                   Return to Home
-                </Link>
-                <Link 
-                  href="/admin"
-                  className="px-6 py-3 bg-amber-500 hover:bg-amber-600 text-neutral-950 rounded-lg transition-colors text-sm font-bold shadow-md"
-                >
-                  View in Admin Portal
                 </Link>
               </div>
             </div>
@@ -380,72 +376,16 @@ Please verify our order details and process customization. Thank you!`;
                         />
                       </div>
 
-                      {/* Payment Method Selector */}
+                      {/* Payment Method: COD only */}
                       <div className="pt-4 border-t border-amber-500/10">
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-amber-400 mb-3">
-                          Select Payment Method
-                        </label>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          {/* COD option */}
-                          <label className={`border p-4 rounded-xl flex items-center justify-between cursor-pointer transition-all ${
-                            form.paymentMethod === 'COD' 
-                              ? 'border-amber-500 bg-neutral-900/50' 
-                              : 'border-amber-500/10 hover:border-amber-500/30 bg-neutral-950/40'
-                          }`}>
-                            <div className="flex items-center gap-3">
-                              <input 
-                                type="radio" 
-                                name="paymentMethod" 
-                                value="COD"
-                                checked={form.paymentMethod === 'COD'}
-                                onChange={handleInputChange}
-                                className="text-amber-500 focus:ring-amber-500"
-                              />
-                              <div>
-                                <span className="font-bold text-white block text-sm">Cash on Delivery</span>
-                                <span className="text-[10px] text-neutral-500">Pay cash upon parcel delivery</span>
-                              </div>
-                            </div>
-                            <Sparkles className="h-5 w-5 text-amber-500/50" />
-                          </label>
-
-                          {/* UPI option */}
-                          <label className={`border p-4 rounded-xl flex items-center justify-between cursor-pointer transition-all ${
-                            form.paymentMethod === 'UPI' 
-                              ? 'border-amber-500 bg-neutral-900/50' 
-                              : 'border-amber-500/10 hover:border-amber-500/30 bg-neutral-950/40'
-                          }`}>
-                            <div className="flex items-center gap-3">
-                              <input 
-                                type="radio" 
-                                name="paymentMethod" 
-                                value="UPI"
-                                checked={form.paymentMethod === 'UPI'}
-                                onChange={handleInputChange}
-                                className="text-amber-500 focus:ring-amber-500"
-                              />
-                              <div>
-                                <span className="font-bold text-white block text-sm">UPI Payment (QR/Direct)</span>
-                                <span className="text-[10px] text-neutral-500">Fast checkout verification via UPI</span>
-                              </div>
-                            </div>
-                            <CreditCard className="h-5 w-5 text-amber-500/50" />
-                          </label>
+                        <div className="border border-amber-500 bg-neutral-900/50 p-4 rounded-xl flex items-center gap-3">
+                          <Check className="h-5 w-5 text-amber-500 flex-shrink-0" />
+                          <div>
+                            <span className="font-bold text-white block text-sm">Cash on Delivery</span>
+                            <span className="text-[10px] text-neutral-500">Pay cash upon parcel delivery — no advance payment needed</span>
+                          </div>
                         </div>
                       </div>
-{form.paymentMethod === 'UPI' && (
-  <div className="mt-6 p-6 bg-neutral-900/30 rounded-xl border border-amber-500/20 text-center">
-    <p className="text-amber-500 mb-4 text-sm">Scan the QR code with any UPI app to pay ₹{total}</p>
-    <QRCodeSVG value={`upi://pay?pa=${CONFIG.MOCK_PAYMENT_UPI}&pn=EDSHA&am=${total}&cu=INR`} size={180} level="Q" includeMargin={false} />
-    <button
-      type="button"
-      onClick={() => { window.location.href = `upi://pay?pa=${CONFIG.MOCK_PAYMENT_UPI}&pn=EDSHA&am=${total}&cu=INR`; }}
-      className="mt-4 w-full py-2 bg-amber-500 hover:bg-amber-600 text-neutral-950 font-medium rounded-lg transition-colors"
-    >
-      Open UPI App
-    </button>
-  </div>
-)}
                     </div>
                   </div>
 

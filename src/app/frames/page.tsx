@@ -6,15 +6,13 @@ import Footer from '@/components/Footer';
 import FloatingActions from '@/components/FloatingActions';
 import { useStore } from '@/context/StoreContext';
 import { Product } from '@/data/products';
-import { Upload, Check, Heart, ShoppingBag, Eye, HelpCircle } from 'lucide-react';
+import { Check, Heart, ShoppingBag, Eye, MessageCircle } from 'lucide-react';
 
 export default function FramesPage() {
   const { products, addToCart, toggleWishlist, isWishlisted } = useStore();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   
   // Customization Form State
-  const [photo, setPhoto] = useState<File | null>(null);
-  const [photoUrl, setPhotoUrl] = useState<string>('');
   const [customName, setCustomName] = useState('');
   const [customMessage, setCustomMessage] = useState('');
   const [quantity, setQuantity] = useState(1);
@@ -23,21 +21,8 @@ export default function FramesPage() {
 
   const frames = products.filter((p) => p.category === 'frames');
 
-  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      setPhoto(file);
-      // Create local URL for previewing in the cart/customizer
-      const previewUrl = URL.createObjectURL(file);
-      setPhotoUrl(previewUrl);
-      setValidationError('');
-    }
-  };
-
   const openCustomizer = (product: Product) => {
     setSelectedProduct(product);
-    setPhoto(null);
-    setPhotoUrl('');
     setCustomName('');
     setCustomMessage('');
     setQuantity(1);
@@ -48,10 +33,6 @@ export default function FramesPage() {
   const handleAddToCart = () => {
     if (!selectedProduct) return;
 
-    if (!photo) {
-      setValidationError('Please upload a photo to personalize your acrylic frame.');
-      return;
-    }
     if (!customName.trim()) {
       setValidationError('Please enter a custom name.');
       return;
@@ -67,8 +48,6 @@ export default function FramesPage() {
       price: selectedProduct.price,
       image: selectedProduct.image,
       customDetails: {
-        photoName: photo.name,
-        photoUrl: photoUrl, // Pass local blob URL
         customName: customName,
         customMessage: customMessage,
         category: 'frames'
@@ -185,49 +164,19 @@ export default function FramesPage() {
                 </div>
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Left Column: Picture Upload Area */}
+                  {/* Left Column: WhatsApp Photo Instruction */}
                   <div className="space-y-4">
                     <label className="block text-xs font-semibold uppercase tracking-wider text-amber-400">
-                      Step 1: Upload Your Image
+                      Step 1: Your Photo
                     </label>
-                    <div className="border-2 border-dashed border-amber-500/30 rounded-xl bg-neutral-900/30 p-6 flex flex-col items-center justify-center text-center relative hover:border-amber-500 transition-colors h-64 overflow-hidden">
-                      {photoUrl ? (
-                        <>
-                          <div className="w-3/4 h-3/4 relative z-10" style={{
-                            border: '12px solid #4a3018',
-                            borderLeftColor: '#5c4028',
-                            borderTopColor: '#6a4b32',
-                            borderRightColor: '#3a2008',
-                            borderBottomColor: '#2d1804',
-                            boxShadow: '0 10px 25px rgba(0,0,0,0.5), inset 0 0 15px rgba(0,0,0,0.8)',
-                            backgroundColor: '#fff'
-                          }}>
-                            <img 
-                              src={photoUrl} 
-                              alt="Uploaded Preview" 
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          <button
-                            onClick={() => { setPhoto(null); setPhotoUrl(''); }}
-                            className="absolute bottom-2 right-2 bg-neutral-950/80 text-amber-500 hover:text-amber-400 font-bold text-xs py-1 px-3 rounded-md border border-amber-500/30 z-20"
-                          >
-                            Change Photo
-                          </button>
-                        </>
-                      ) : (
-                        <>
-                          <Upload className="h-10 w-10 text-amber-500/50 mb-3" />
-                          <p className="text-neutral-300 text-sm font-semibold mb-1">Click to Upload Photo</p>
-                          <p className="text-neutral-500 text-xs">Supports JPG, PNG (Max 5MB)</p>
-                          <input
-                            type="file"
-                            accept="image/*"
-                            onChange={handlePhotoUpload}
-                            className="absolute inset-0 opacity-0 cursor-pointer"
-                          />
-                        </>
-                      )}
+                    <div className="border-2 border-amber-500/30 rounded-xl bg-neutral-900/30 p-6 flex flex-col items-center justify-center text-center h-64">
+                      <div className="h-14 w-14 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center mb-4">
+                        <MessageCircle className="h-7 w-7 text-amber-500" />
+                      </div>
+                      <p className="text-white text-sm font-semibold mb-2">Send Photo via WhatsApp</p>
+                      <p className="text-neutral-400 text-xs leading-relaxed">
+                        After placing your order, send your photo directly to our WhatsApp. We will use it to personalise your frame.
+                      </p>
                     </div>
                   </div>
 
