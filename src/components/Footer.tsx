@@ -54,27 +54,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Customer Support policies */}
-          <div>
-            <h3 className="text-white font-serif font-bold text-lg mb-6 tracking-wide flex items-center gap-2">
-              <span className="w-4 h-[1px] bg-amber-500 inline-block"></span>
-              Client Care
-            </h3>
-            <ul className="space-y-3 text-sm text-neutral-400">
-              <li>
-                <Link href="/#delivery-info" className="hover:text-amber-400 transition-colors inline-block transform hover:translate-x-1 duration-300">Delivery & Returns</Link>
-              </li>
-              <li>
-                <Link href="/#faq-section" className="hover:text-amber-400 transition-colors inline-block transform hover:translate-x-1 duration-300">Frequently Asked Questions</Link>
-              </li>
-              <li>
-                <Link href="/admin" className="hover:text-amber-400 transition-colors inline-block transform hover:translate-x-1 duration-300">Corporate Gifting</Link>
-              </li>
-              <li>
-                <Link href="/#contact" className="hover:text-amber-400 transition-colors inline-block transform hover:translate-x-1 duration-300">Contact Concierge</Link>
-              </li>
-            </ul>
-          </div>
 
           {/* Contact Details */}
           <div className="space-y-5 text-sm text-neutral-400">

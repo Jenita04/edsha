@@ -60,14 +60,14 @@ export default function Navbar() {
 };
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-[#0A0A0A]/90 backdrop-blur-md border-b border-amber-500/20 py-1' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${isScrolled ? 'bg-[#0A0A0A]/90 backdrop-blur-md border-b border-amber-500/20 py-1' : 'bg-transparent py-2 md:py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-20">
           
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-3 group">
               <img src="/images/edsha_logo.jpeg" alt="EDSHA Logo" className="h-10 w-10 object-cover rounded-md border border-amber-500/30 group-hover:scale-105 transition-transform duration-300" />
-              <span className="text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-500 to-amber-600 gold-text-glow font-serif">
+              <span className="text-2xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-700 md:from-amber-300 md:via-yellow-500 md:to-amber-600 gold-text-glow font-serif">
                 {CONFIG.BUSINESS_NAME}
               </span>
             </Link>
@@ -93,7 +93,7 @@ export default function Navbar() {
           </div>
 
           {/* Action Icons */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2">
             {/* Search Bar Toggle */}
             <div className="relative flex items-center">
               <button
@@ -148,7 +148,7 @@ export default function Navbar() {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-neutral-300 hover:text-amber-400 md:hidden transition-colors focus:outline-none"
+              className="p-2 text-neutral-300 hover:text-amber-400 md:hidden transition-colors focus:outline-none bg-neutral-900/30 rounded-full"
               aria-label="Toggle Menu"
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

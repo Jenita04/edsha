@@ -140,10 +140,10 @@ export default function HamperBuilder({
           <p className="text-neutral-400 text-sm">Review your cart to checkout or build another hamper.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-8 items-start">
           
           {/* LEFT: Package Selector (col-span-4) */}
-          <div className="lg:col-span-4 space-y-6">
+          <div className="lg:col-span-4 space-y-6 mb-8 lg:mb-0">
             <h2 className="text-xl font-bold font-serif text-amber-500 border-b border-amber-500/10 pb-2 flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-amber-500"></span>
               <span>1. Choose Hamper Package</span>
@@ -181,7 +181,7 @@ export default function HamperBuilder({
           </div>
 
           {/* MIDDLE: Product Checklist (col-span-5) */}
-          <div className="lg:col-span-5 space-y-6">
+          <div className="lg:col-span-5 space-y-6 mb-8 lg:mb-0">
             <h2 className="text-xl font-bold font-serif text-amber-500 border-b border-amber-500/10 pb-2 flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-amber-500"></span>
               <span>2. Select Products ({selectedItems.length}/{selectedPkg.maxItems})</span>
@@ -256,7 +256,7 @@ export default function HamperBuilder({
           </div>
 
           {/* RIGHT: Custom Details & Add to Cart (col-span-3) */}
-          <div className="lg:col-span-3 space-y-6">
+          <div className="lg:col-span-3 space-y-6 mb-8 lg:mb-0">
             <h2 className="text-xl font-bold font-serif text-amber-500 border-b border-amber-500/10 pb-2 flex items-center gap-2">
               <span className="h-2 w-2 rounded-full bg-amber-500"></span>
               <span>3. Personalize & Buy</span>
